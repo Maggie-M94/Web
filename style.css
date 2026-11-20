@@ -404,10 +404,6 @@ section.footer {
 
     #pointer {
         width: 30px;
-        left: 48.5% !important;
-        top: 50;
-        transform: translate(-50%, -50%);
-        z-index: 10;
     }
 }
 
@@ -438,10 +434,6 @@ section.footer {
 
     #pointer {
         width: 50px;
-        left: 48.5% !important;
-        top: 50;
-        transform: translate(-50%, -50%);
-        z-index: 10;
     }
 }
 
@@ -470,10 +462,6 @@ section.footer {
 
     #pointer {
         width: 70px;
-        left: 48.5% !important;
-        top: 50;
-        transform: translate(-50%, -50%);
-        z-index: 10;
     }
 
     .social-icon img {
@@ -485,8 +473,9 @@ section.footer {
 /* links */
 a {
     font-family: HelveticaRegular;
-    font-weight: bold;
+    font-weight: 400;
     font-style: normal;
+    font-weight: bold;
     color: var(--color-dark);
     text-decoration: underline;
 }
@@ -540,14 +529,70 @@ body {
     background-size: cover;
 }
 
-/* Game */
+/* Game: fixed gold rim with a centred rotating prize section */
 .wheel-wrapper {
     position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
+/* Original image supplies the stationary outer rim. */
 .wheel-image {
+    display: block;
     width: 100%;
     height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Measured circular opening for the supplied 831 x 833 wheel. */
+.wheel-window {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    -webkit-clip-path: circle(46.094% at 50% 50%);
+    clip-path: circle(46.094% at 50% 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* JavaScript rotates this layer only. */
+.wheel-rotor {
+    position: absolute;
+    inset: 0;
+    transform-origin: 50% 50%;
+}
+
+/* Reposition the source wedge centre inside the rotating layer. */
+.wheel-rotor-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 106%;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transform: translate(-48.981%, -51.283%);
+}
+
+/* Anchor the round badge, rather than the whole 118 x 149 PNG. */
+#pointer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transform: translate(-49.915%, -60.201%);
+    z-index: 10;
+    pointer-events: none;
 }
 
 /* Score Style */
@@ -648,4 +693,92 @@ body {
 
 .social-img:hover {
     transform: translateY(-3px);
+}
+
+/* =====================================
+   PREDICTION SUCCESS MODAL
+   Uses the existing h3, p and .btn-primary typography.
+===================================== */
+
+#predictionSuccessModal .modal-dialog {
+    width: calc(100% - 2rem);
+    max-width: 410px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#predictionSuccessModal .modal-content {
+    padding: 0;
+    background-color: var(--color-light);
+    border: 1px solid #999999;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#predictionSuccessModal .modal-header {
+    position: relative;
+    display: block;
+    padding: 14px 44px;
+    background-color: var(--color-dark);
+    border: 0;
+    border-radius: 0;
+}
+
+#predictionSuccessModal .modal-title {
+    margin: 0;
+    padding: 0;
+    color: var(--color-light);
+}
+
+#predictionSuccessModal .prediction-modal-close {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+}
+
+#predictionSuccessModal .modal-body {
+    padding: 20px 24px 22px;
+}
+
+#predictionSuccessModal .modal-body p {
+    margin: 0 0 8px;
+    padding: 0;
+}
+
+#predictionSuccessModal .spin-wheel-btn {
+    display: block;
+    width: 100%;
+    margin-top: 13px;
+    padding: 9px 12px;
+    background-image: none;
+    background-color: var(--color-light) !important;
+    border: 1px solid var(--color-secondary) !important;
+    border-radius: 0;
+    color: var(--color-secondary) !important;
+    text-decoration: none;
+    transform: none;
+}
+
+#predictionSuccessModal .spin-wheel-btn:hover,
+#predictionSuccessModal .spin-wheel-btn:focus,
+#predictionSuccessModal .spin-wheel-btn:active {
+    background-color: var(--color-secondary) !important;
+    color: var(--color-light) !important;
+}
+
+#predictionSuccessModal .spin-wheel-btn:focus-visible {
+    outline: 2px solid var(--color-dark);
+    outline-offset: 3px;
+}
+
+@media (max-width: 375px) {
+    #predictionSuccessModal .modal-body {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
 }
