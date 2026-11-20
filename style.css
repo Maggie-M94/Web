@@ -485,7 +485,7 @@ section.footer {
 /* links */
 a {
     font-family: HelveticaRegular;
-    font-weight: 400;
+    font-weight: bold;
     font-style: normal;
     color: var(--color-dark);
     text-decoration: underline;
