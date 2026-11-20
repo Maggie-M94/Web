@@ -50,8 +50,7 @@
                                     <img src="assets/pirates.png" alt="pirates" class="img-fluid team-logo">
                                     <h4>Orlando Pirates</h4>
                                 </div>
-                                <div class="col-2">
-                                    <span class="vs-text">VS</span>
+                                <div class="col-2"><span class="vs-text">VS</span>
                                 </div>
                                 <div class="col-5">
                                     <img src="assets/golden-arrows.png" alt="Golden Arrows" class="img-fluid team-logo">
@@ -63,13 +62,15 @@
                                 <div class="form-fill-out col-5 col-md-5">
                                     <input pattern="[0-9]+" title="score" class="input-date" type="tel" id="boks-score" name="boks-score" value="" size="8" maxlength="2" placeholder="score"/>
                                 </div>
-                                <div class="col-2 col-md-2 d-flex align-items-center justify-content-center"><span class="score-divider"></span>
+                                <div class="col-2 col-md-2 d-flex align-items-center justify-content-center">
+                                    <span class="score-divider"></span>
                                 </div>
                                 <div class="form-fill-out col-5 col-md-5">
                                     <input pattern="[0-9]+" title="score" class="input-date" type="tel" id="allblacks-score" name="allblacks-score" value="" size="8" maxlength="2" placeholder="score"/>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary mt-4">submit prediction</button>
+                            <button type="submit" class="btn btn-primary mt-4" data-bs-toggle="modal"
+                                data-bs-target="#predictionSuccessModal">submit prediction</button>
                         </div>
                     </div>
                     <div class="col col-lg col-md col-sm">
@@ -91,6 +92,51 @@
                 </div>
             </div>
         </section>
+        <!-- Prediction success modal -->
+        <div
+            class="modal fade"
+            id="predictionSuccessModal"
+            tabindex="-1"
+            aria-labelledby="predictionSuccessModalLabel"
+            aria-describedby="predictionSuccessMessage"
+            aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="predictionSuccessModalLabel">
+                            PREDICTION SUCCESSFUL
+                        </h4>
+
+                        <button
+                            type="button"
+                            class="btn-close btn-close-white prediction-modal-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p id="predictionSuccessMessage">
+                            <strong>Prediction locked in.</strong> Good luck Buccaneer!
+                        </p>
+
+                        <p>
+                            Spin the wheel for a chance to WIN AN<br>
+                            AMSTEL JERSEY.
+                        </p>
+
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-sm-11">
+                                <!-- Replace with your actual spin wheel page -->
+                                <a href="spin-wheel.html" class="btn btn-primary spin-wheel-btn">
+                                    SPIN THE WHEEL
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
