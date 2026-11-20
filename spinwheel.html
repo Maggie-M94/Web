@@ -6,17 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="description" content=""/>
         <meta name="author" content=""/>
-        <title>Spin & Wheel</title>
+        <title>Spin &amp; Win</title>
+
         <link rel="stylesheet" href="https://use.typekit.net/wxu5gpv.css">
+
         <!-- Bootstrap core CSS -->
         <link href="bootstrap_theme/bootstrap.css" rel="stylesheet" type="text/css">
+
         <!-- Custom styles for this template -->
         <link href="style.css" rel="stylesheet"/>
         <link rel="stylesheet" href="https://use.typekit.net/umt8wej.css">
+
         <script>
         /* Pinegrow Interactions, do not remove */ (function(){try{if(!document.documentElement.hasAttribute('data-pg-ia-disabled')) { window.pgia_small_mq=typeof pgia_small_mq=='string'?pgia_small_mq:'(max-width:767px)';window.pgia_large_mq=typeof pgia_large_mq=='string'?pgia_large_mq:'(min-width:768px)';var style = document.createElement('style');var pgcss='html:not(.pg-ia-no-preview) [data-pg-ia-hide=""] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show=""] {opacity:1;visibility:visible;display:block;}';if(document.documentElement.hasAttribute('data-pg-id') && document.documentElement.hasAttribute('data-pg-mobile')) {pgia_small_mq='(min-width:0)';pgia_large_mq='(min-width:99999px)'} pgcss+='@media ' + pgia_small_mq + '{ html:not(.pg-ia-no-preview) [data-pg-ia-hide="mobile"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="mobile"] {opacity:1;visibility:visible;display:block;}}';pgcss+='@media ' + pgia_large_mq + '{html:not(.pg-ia-no-preview) [data-pg-ia-hide="desktop"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="desktop"] {opacity:1;visibility:visible;display:block;}}';style.innerHTML=pgcss;document.querySelector('head').appendChild(style);}}catch(e){console&&console.log(e);}})()
-    </script>
+        </script>
     </head>
+
     <body class="background">
         <section class="hero">
             <div class="container-fluid">
@@ -28,70 +33,172 @@
                 </div>
             </div>
         </section>
-        <section class="">
+
+        <section>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col col-lg col-md col-sm">
-</div>
-                    <div class="col-10 col-lg-5 col-md-5 col-sm-10 ">
-                        <h1>SPIN & WIN</h1>
+                    <div class="col col-lg col-md col-sm"></div>
+
+                    <div class="col-10 col-lg-5 col-md-5 col-sm-10">
+                        <h1>SPIN &amp; WIN</h1>
                         <p>Stand a chance to win an Amstel jersey!</p>
                     </div>
-                    <div class="col col-lg col-md col-sm">
-</div>
+
+                    <div class="col col-lg col-md col-sm"></div>
                 </div>
             </div>
         </section>
+
         <section>
             <div class="container body-content">
                 <div class="row text-center">
                     <div class="row">
-                        <div class="col col-lg col-md col-sm">
-</div>
+                        <div class="col col-lg col-md col-sm"></div>
+
                         <div class="col-10 col-lg-5 col-md-5 col-sm-10">
-                            <div class="">
+                            <div>
                                 <div class="wheel-wrapper">
-                                    <img src="assets/wheel-new.png" alt="Wheel" class="wheel-image"/>
-                                    <img src="assets/pointer.png" alt="Pointer" class="position-absolute top-50 translate-middle" id="pointer" style=""/>
+                                    <!-- Stationary gold rim -->
+                                    <img
+                                        src="assets/wheel-new.png"
+                                        alt="Amstel prize wheel"
+                                        class="wheel-image"
+                                        width="831"
+                                        height="833"
+                                        draggable="false"/>
+
+                                    <!-- Centred prize section: only this layer spins -->
+                                    <div class="wheel-window" aria-hidden="true">
+                                        <div class="wheel-rotor" id="spinWheel">
+                                            <img
+                                                src="assets/wheel-new.png"
+                                                alt=""
+                                                class="wheel-rotor-image"
+                                                width="831"
+                                                height="833"
+                                                draggable="false"/>
+                                        </div>
+                                    </div>
+
+                                    <!-- Fixed pointer, anchored at its round badge -->
+                                    <img
+                                        src="assets/pointer.png"
+                                        alt="Amstel pointer"
+                                        id="pointer"
+                                        width="118"
+                                        height="149"
+                                        draggable="false"/>
                                 </div>
                             </div>
                         </div>
-                        <div class="col col-lg col-md col-sm">
-</div>
+
+                        <div class="col col-lg col-md col-sm"></div>
                     </div>
+
                     <div class="mt-2 mb-3 row">
-                        <div class="col col-lg col-md col-sm">
-</div>
+                        <div class="col col-lg col-md col-sm"></div>
+
                         <div class="row col-8 col-lg-5 col-md-5 col-sm-8">
                             <div class="form-fill-out col-md-12">
-                                <button type="submit" class="btn btn-primary">spin the wheel</button>
+                                <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    id="spinButton"
+                                    onclick="startWheelSpin(this)">
+                                    spin the wheel
+                                </button>
                             </div>
                         </div>
-                        <div class="col col-lg col-md col-sm">
-</div>
+
+                        <div class="col col-lg col-md col-sm"></div>
                     </div>
                 </div>
             </div>
         </section>
+
         <section class="footer">
             <div class="container-fluid footer-area">
                 <div class="row">
-                    <div class="col col-md col-xl">
-</div>
+                    <div class="col col-md col-xl"></div>
+
                     <div class="col-10 col-md-9 col-xl-9">
                         <!-- <img src="assets/sab-ara-line.svg" alt="sab-ara-line" class="w-100"/> -->
                         <img src="assets/distell-ara-line.svg" alt="distell-ara-line" class="w-100"/>
                     </div>
-                    <div class="col col-md col-xl">
-</div>
+
+                    <div class="col col-md col-xl"></div>
                 </div>
             </div>
         </section>
-        <!-- Bootstrap core JavaScript
-    ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
+
+        <!-- Bootstrap core JavaScript -->
         <script src="assets/js/popper.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="pgia/lib/pgia.js"></script>
+
+        <!-- Wheel animation: called directly by the button -->
+        <script>
+            (() => {
+                let currentRotation = 0;
+                let isSpinning = false;
+
+                window.startWheelSpin = function (button) {
+                    if (isSpinning) return;
+
+                    // Look up the rotating prize layer when clicked.
+                    const wheel = document.getElementById("spinWheel") ||
+                        document.querySelector(".wheel-wrapper .wheel-rotor");
+
+                    if (!wheel) {
+                        console.error("Rotating layer not found. Use id=spinWheel on the wheel-rotor element.");
+                        return;
+                    }
+
+                    const buttonLabel = button.textContent.trim();
+                    const reducedMotion = window.matchMedia &&
+                        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                    const duration = reducedMotion ? 1800 : 5000;
+                    const fullSpins = reducedMotion ? 1 : 6;
+                    const startRotation = currentRotation;
+                    const extraRotation = fullSpins * 360 + Math.random() * 360;
+                    const endRotation = startRotation + extraRotation;
+                    let startTime = null;
+
+                    isSpinning = true;
+                    button.disabled = true;
+                    button.textContent = "Spinning...";
+
+                    wheel.style.transformOrigin = "50% 50%";
+                    wheel.style.transition = "none";
+                    wheel.style.willChange = "transform";
+
+                    function animateWheel(timestamp) {
+                        if (startTime === null) startTime = timestamp;
+
+                        const progress = Math.min((timestamp - startTime) / duration, 1);
+                        const easedProgress = 1 - Math.pow(1 - progress, 4);
+                        const angle = startRotation + extraRotation * easedProgress;
+
+                        wheel.style.transform = "rotate(" + angle + "deg)";
+
+                        if (progress < 1) {
+                            requestAnimationFrame(animateWheel);
+                            return;
+                        }
+
+                        currentRotation = endRotation % 360;
+                        wheel.style.transform = "rotate(" + currentRotation + "deg)";
+                        wheel.style.removeProperty("will-change");
+
+                        isSpinning = false;
+                        button.disabled = false;
+                        button.textContent = buttonLabel;
+                    }
+
+                    requestAnimationFrame(animateWheel);
+                };
+            })();
+        </script>
     </body>
 </html>
+
