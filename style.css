@@ -231,7 +231,7 @@ select.form-control:active {
 
 .form-check-input:checked,
 .form-check-input:active {
-    background-color: var(--color-secondary);
+    background-color: var(--color-dark);
     border: 0px solid var(--color-secondary);
     box-shadow: none;
 }
